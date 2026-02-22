@@ -169,7 +169,18 @@ The motorcycle must look like a ${bikeText}. ${variantCues}
 Keep the BMW roundel visible if it appears in the reference or add it subtly.
 Full body character standing next to the bike, 3/4 view, centered composition.
 Background: ${background === "transparent" ? "transparent background" : "plain white background"}.
-No realistic photo look. No text. No watermark. No extra people. No extra bikes.
+Style constraints:
+- No realistic photo look.
+- No text.
+- No typography.
+- No letters.
+- No numbers.
+- No logos with readable wording.
+- Do NOT generate any visible text anywhere in the image.
+- The only allowed branding element is the BMW roundel symbol (no words).
+- No watermark.
+- No extra people.
+- No extra bikes.
       `.trim();
 
       // Normalize images to PNG if present
