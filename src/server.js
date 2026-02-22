@@ -109,10 +109,10 @@ No realistic photo look. No text. No watermark. No extra people. No extra bikes.
 
       // ✅ Native FormData + Blob (Node 22). Do NOT set Content-Type manually.
       const form = new FormData();
-      form.append("image", new Blob([facePng], { type: "image/png" }), "face.png");
-      form.append("image", new Blob([bikePng], { type: "image/png" }), "bike.png");
+      form.append("image[]", new Blob([facePng], { type: "image/png" }), "face.png");
+      form.append("image[]", new Blob([bikePng], { type: "image/png" }), "bike.png");
       if (stylePng) {
-        form.append("image", new Blob([stylePng], { type: "image/png" }), "style.png");
+        form.append("image[]", new Blob([stylePng], { type: "image/png" }), "style.png");
       }
 
       form.append("model", "gpt-image-1.5");
