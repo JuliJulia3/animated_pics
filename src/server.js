@@ -153,6 +153,9 @@ app.post(
       const prompt = `
 Create a cute vinyl toy character and BMW motorcycle illustration.
 Match the style of the provided style reference if present: big head, simplified features, glossy plastic, clean bold outlines, soft studio shadow.
+The character must always wear a premium modern BMW adventure rider suit (jacket + pants), protective boots and gloves.
+The helmet must NOT be worn.
+The helmet must be clearly held in one hand (visible and separate from the head).
 ${characterDesc}
 ${bikeDesc}
 The motorcycle must look like a ${bikeText}. ${variantCues}
