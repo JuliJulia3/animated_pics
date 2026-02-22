@@ -3,6 +3,11 @@ import multer from "multer";
 import sharp from "sharp";
 import heicConvert from "heic-convert";
 import crypto from "crypto";
+import swaggerUi from "swagger-ui-express";
+import YAML from "yamljs";
+
+const swaggerDocument = YAML.load("./openapi.yaml");
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -11,6 +16,8 @@ const PORT = process.env.PORT || 3000;
 const upload = multer({
   limits: { fileSize: 12 * 1024 * 1024 },
 });
+
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get("/", (req, res) => {
   res

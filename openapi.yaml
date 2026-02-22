@@ -1,0 +1,111 @@
+openapi: 3.1.0
+info:
+  title: BMW Funko Rider API
+  version: 1.0.0
+  description: >
+    Generates a stylized vinyl toy (Funko-style) character next to a BMW R1300GS or R1300GS Adventure.
+    Supports face image, character description fallback, and optional bike reference image.
+
+servers:
+  - url: https://animated-pics.onrender.com
+
+paths:
+  /health:
+    get:
+      summary: Health check
+      responses:
+        '200':
+          description: Service is alive
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ok:
+                    type: boolean
+                    example: true
+
+  /v1/funko-bmw:
+    post:
+      summary: Generate Funko-style BMW Rider Image
+      description: >
+        Generates a vinyl toy character wearing a BMW rider suit,
+        holding a helmet in one hand, standing next to a BMW R1300GS
+        or R1300GS Adventure motorcycle.
+
+      requestBody:
+        required: false
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                face:
+                  type: string
+                  format: binary
+                  description: Optional face image to preserve identity.
+                bike:
+                  type: string
+                  format: binary
+                  description: Optional motorcycle reference image.
+                style:
+                  type: string
+                  format: binary
+                  description: Optional style reference image to lock visual consistency.
+                character:
+                  type: string
+                  description: >
+                    Optional text description of the character if no face image is provided.
+                    Example: "female blonde rider with glasses"
+                variant:
+                  type: string
+                  enum:
+                    - r1300gs
+                    - r1300gs_adventure
+                  default: r1300gs
+                  description: Select BMW model variant.
+                background:
+                  type: string
+                  enum:
+                    - white
+                    - transparent
+                  default: white
+                  description: Output background type.
+            encoding:
+              face:
+                contentType: image/*
+              bike:
+                contentType: image/*
+              style:
+                contentType: image/*
+
+      responses:
+        '200':
+          description: Generated PNG image
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+
+        '400':
+          description: Invalid input parameters
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+
+        '500':
+          description: Internal server or generation error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  details:
+                    type: string
