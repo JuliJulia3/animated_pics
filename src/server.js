@@ -5,11 +5,25 @@ import heicConvert from "heic-convert";
 import crypto from "crypto";
 import swaggerUi from "swagger-ui-express";
 import YAML from "yamljs";
+import cors from "cors";
 
 const swaggerDocument = YAML.load("./openapi.yaml");
 
 
 const app = express();
+app.use(cors({
+  origin: [
+    "https://connect-rider.vercel.app",
+    "http://localhost:5173",
+    "http://localhost:3000",
+  ],
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: false,
+}));
+
+// Make preflight always succeed
+app.options("*", cors());
 const PORT = process.env.PORT || 3000;
 
 // Accept uploads up to 12MB each
