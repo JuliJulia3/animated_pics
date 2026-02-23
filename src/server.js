@@ -45,14 +45,14 @@ app.get("/health", (req, res) => res.json({ ok: true }));
 
 // Random avatar presets (used if no face AND no character is provided)
 const AVATAR_PRESETS = [
-  "young adult with short dark hair, casual streetwear",
-  "young adult with curly hair, hoodie and sneakers",
-  "female with long hair, denim jacket, friendly smile",
-  "male with buzz cut, black t-shirt, confident pose",
-  "person with glasses, neat hairstyle, minimalist outfit",
-  "person with a beanie, oversized sweater, relaxed vibe",
-  "athletic person, ponytail, sporty outfit",
-  "person with freckles, short hair, casual jacket",
+  "androgynous person wearing a full-face helmet with tinted visor, neutral posture, casual streetwear",
+  "androgynous person wearing a full-face helmet with mirrored visor, neutral stance, hoodie and sneakers",
+  "androgynous person wearing a full-face helmet with matte black visor, relaxed upright posture, denim jacket",
+  "androgynous person wearing a full-face helmet with reflective visor, arms at sides, black t-shirt",
+  "androgynous person wearing a full-face helmet with opaque visor, symmetrical stance, minimalist outfit",
+  "androgynous person wearing a full-face helmet with dark visor, standing straight, oversized sweater",
+  "androgynous person wearing a full-face helmet with tinted visor, balanced stance, sporty outfit",
+  "androgynous person wearing a full-face helmet with mirrored visor, neutral posture, casual jacket"
 ];
 
 // R1300 variants prompt cues
