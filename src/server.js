@@ -16,6 +16,7 @@ app.use(cors({
     "https://connect-rider.vercel.app",
     "http://localhost:5173",
     "http://localhost:3000",
+    "http://localhost:3001"
   ],
   methods: ["GET", "POST", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
