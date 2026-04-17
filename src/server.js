@@ -13,7 +13,7 @@ const swaggerDocument = YAML.load("./openapi.yaml");
 const app = express();
 app.use(cors({
   origin: [
-    "https://connect-rider.vercel.app",
+    "https://connectedrideapp.vercel.app",
     "http://localhost:5173",
     "http://localhost:3000",
     "http://localhost:3001"
